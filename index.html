@@ -247,7 +247,7 @@
   @media (min-width: 768px) { .illustration-section__inner { grid-template-columns: 1fr 1.5fr; } }
 
   /* MARQUEE */
-  .marquee { overflow: hidden; padding: var(--space-2xl) var(--page-pad); background: var(--color-neutral); }
+  .marquee { overflow: hidden; padding: var(--space-2xl) 0; background: var(--color-neutral); }
   .marquee__row { display: flex; white-space: nowrap; overflow: hidden; }
   .marquee__text { font-size: clamp(40px, 7vw, 80px); line-height: 1.2; color: var(--color-ink); text-transform: uppercase; padding-right: .3em; flex-shrink: 0; }
   .marquee__text--franie { font-family: var(--font-franie); font-weight: 700; }
@@ -426,10 +426,10 @@
         </div>
         <p class="project__desc">EVA es la identidad visual de una exposición colectiva de ilustración que reinterpreta la figura de Eva como símbolo del origen de lo femenino. El concepto "Fragmentación de lo femenino" representa una identidad dividida por factores sociales, culturales y emocionales que puede reconstruirse mediante la introspección, la creatividad y la resistencia.</p>
         <div class="project__gallery project__gallery--row4">
-          <img src="assets/img/brand/eva/marca-eva-cartel.jpg" alt="EVA — Pieza principal" loading="lazy">
-          <img src="assets/img/brand/eva/marca-eva-01.jpg" alt="EVA — Logotipo" loading="lazy">
-          <img src="assets/img/brand/eva/marca-eva-02.jpg" alt="EVA — Sistema gráfico" loading="lazy">
-          <img src="assets/img/brand/eva/marca-eva-03.jpg" alt="EVA — Aplicaciones" loading="lazy">
+          <img src="assets/img/brand/eva/marca-eva-cartel.jpg" alt="EVA — Pieza principal" loading="lazy" data-lightbox="b0">
+          <img src="assets/img/brand/eva/marca-eva-01.jpg" alt="EVA — Logotipo" loading="lazy" data-lightbox="b1">
+          <img src="assets/img/brand/eva/marca-eva-02.jpg" alt="EVA — Sistema gráfico" loading="lazy" data-lightbox="b2">
+          <img src="assets/img/brand/eva/marca-eva-03.jpg" alt="EVA — Aplicaciones" loading="lazy" data-lightbox="b3">
         </div>
       </article>
 
@@ -442,10 +442,10 @@
         </div>
         <p class="project__desc">Pequeños cuidados es una campaña de salud que acerca la autoexploración mamaria a la vida cotidiana de adolescentes y jóvenes. Parte de tres ideas —familiaridad, confianza y hábito— para presentar la revisión mensual como una acción sencilla, íntima y preventiva, alejada de un tono médico o alarmista.</p>
         <div class="project__gallery project__gallery--row4">
-          <img src="assets/img/brand/cancer-mama/camp-cancer-01.jpg" alt="Pequeños cuidados — Pieza principal" loading="lazy">
-          <img src="assets/img/brand/cancer-mama/camp-cancer-02.jpg" alt="Pequeños cuidados — Aplicación digital" loading="lazy">
-          <img src="assets/img/brand/cancer-mama/camp-cancer-03.png" alt="Pequeños cuidados — Aplicación impresa" loading="lazy">
-          <img src="assets/img/brand/cancer-mama/camp-cancer-04.png" alt="Pequeños cuidados — Pieza adicional" loading="lazy">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-01.jpg" alt="Pequeños cuidados — Pieza principal" loading="lazy" data-lightbox="b4">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-02.jpg" alt="Pequeños cuidados — Aplicación digital" loading="lazy" data-lightbox="b5">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-03.png" alt="Pequeños cuidados — Aplicación impresa" loading="lazy" data-lightbox="b6">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-04.png" alt="Pequeños cuidados — Pieza adicional" loading="lazy" data-lightbox="b7">
         </div>
       </article>
 
@@ -458,9 +458,9 @@
         </div>
         <p class="project__desc">Cinema Queer México es una campaña para un festival de cine independiente especializado en narrativas LGBTQ+. Bajo el concepto "Existir sin miedo", posiciona al festival como un espacio de visibilidad, comunidad y pertenencia, donde las identidades y experiencias queer pueden expresarse con libertad.</p>
         <div class="project__gallery project__gallery--row3">
-          <img src="assets/img/brand/cin-queer/camp-queer-cartel.jpg" alt="Cinema Queer — Pieza principal" loading="lazy">
-          <img src="assets/img/brand/cin-queer/camp-queer-01.jpg" alt="Cinema Queer — Piezas de campaña" loading="lazy">
-          <img src="assets/img/brand/cin-queer/camp-queer-02.jpg" alt="Cinema Queer — Aplicaciones" loading="lazy">
+          <img src="assets/img/brand/cin-queer/camp-queer-cartel.jpg" alt="Cinema Queer — Pieza principal" loading="lazy" data-lightbox="b8">
+          <img src="assets/img/brand/cin-queer/camp-queer-01.jpg" alt="Cinema Queer — Piezas de campaña" loading="lazy" data-lightbox="b9">
+          <img src="assets/img/brand/cin-queer/camp-queer-02.jpg" alt="Cinema Queer — Aplicaciones" loading="lazy" data-lightbox="b10">
         </div>
       </article>
     </div>
@@ -699,7 +699,7 @@
   // LIGHTBOX
   const lightbox = document.getElementById('lightbox');
   const lbImg = lightbox.querySelector('img');
-  const items = document.querySelectorAll('.illust-card');
+  const items = document.querySelectorAll('[data-lightbox]');
   let currentIdx = 0;
   const sources = Array.from(items).map(i => i.querySelector('img').src);
 
