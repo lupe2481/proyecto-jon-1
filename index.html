@@ -228,7 +228,7 @@
   .video-block { position: relative; aspect-ratio: 16/9; background: var(--color-ink); overflow: hidden; margin-bottom: var(--space-lg); max-height: 350px; border-radius: var(--radius-md); }
   .video-block--vertical { aspect-ratio: 9/16; max-height: 500px; width: 280px; }
   .video-block img, .video-block video { width: 100%; height: 100%; object-fit: cover; }
-  .collab-badge { display: block; font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); background: var(--color-tertiary); color: var(--color-ink); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); width: fit-content; margin-bottom: var(--space-sm); }
+  .collab-badge { display: inline-block; font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); background: var(--color-tertiary); color: var(--color-ink); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); vertical-align: middle; margin-left: var(--space-sm); }
 
   /* ILLUSTRATION */
   .illustration-section { background: var(--color-neutral); padding: var(--space-section) var(--page-pad); }
@@ -528,8 +528,10 @@
         <!-- Los lugares recuerdan -->
         <article class="project motion-right reveal">
           <div class="project__header">
-            <p class="project__number">02</p>
-            <p class="collab-badge">Trabajo colaborativo</p>
+            <div style="display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-sm)">
+              <p class="project__number" style="margin:0">02</p>
+              <p class="collab-badge" style="margin:0">Trabajo colaborativo</p>
+            </div>
             <h3 class="project__name">Los lugares recuerdan</h3>
             <p class="project__meta">Créditos finales para Robot Dreams · Motion graphics · 2026 · Rol: animación (escenas del parque y del mar)</p>
           </div>
