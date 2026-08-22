@@ -159,6 +159,8 @@
   @media (min-width: 1024px) { .section { padding-block: var(--space-section-xl); } }
   .section--ink { background: var(--color-ink); color: var(--color-neutral); }
   .section--ink a { color: var(--color-secondary); }
+  .motion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); margin-top: var(--space-2xl); }
+  @media (max-width: 767px) { .motion-grid { grid-template-columns: 1fr; } }
   .section--tertiary { background: var(--color-tertiary); color: var(--color-ink); }
   .section--primary { background: var(--color-primary); color: var(--color-ink); }
   .section__kicker { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); transition: color var(--motion-fast); display: inline-block; }
@@ -504,44 +506,46 @@
       <p class="section__kicker" style="color:var(--color-neutral)">Motion graphics y animación</p>
       <h2 class="section__title" id="motion-title" style="color:var(--color-neutral)">Motion</h2>
 
-      <!-- Fanta -->
-      <article class="project reveal">
-        <div class="project__header">
-          <p class="project__number">01</p>
-          <h3 class="project__name">Fanta · Estallido de sabor</h3>
-          <p class="project__meta">Promocional animado para TikTok · Motion graphics · 2026 · Rol: concepto visual, diseño y animación</p>
-        </div>
-        <p class="project__desc">Estallido de sabor es un promocional animado para TikTok que traduce la energía, frescura y espontaneidad de Fanta en una pieza breve y dinámica. El concepto parte del instante en que el sabor aparece y libera una energía que transforma la escena, utilizando color, movimiento y ritmo para generar impacto y recordación.</p>
-        <div class="video-block video-block--vertical">
-          <video controls muted loop preload="metadata" poster="assets/vid/fanta/prueba-1.gif">
-            <source src="assets/vid/fanta/fanta-reel.mp4" type="video/mp4">
-          </video>
-        </div>
-      </article>
+      <div class="motion-grid">
+        <!-- Fanta -->
+        <article class="project reveal">
+          <div class="project__header">
+            <p class="project__number">01</p>
+            <h3 class="project__name">Fanta · Estallido de sabor</h3>
+            <p class="project__meta">Promocional animado para TikTok · Motion graphics · 2026 · Rol: concepto visual, diseño y animación</p>
+          </div>
+          <p class="project__desc">Estallido de sabor es un promocional animado para TikTok que traduce la energía, frescura y espontaneidad de Fanta en una pieza breve y dinámica. El concepto parte del instante en que el sabor aparece y libera una energía que transforma la escena, utilizando color, movimiento y ritmo para generar impacto y recordación.</p>
+          <div class="video-block video-block--vertical">
+            <video controls muted loop preload="metadata" poster="assets/vid/fanta/prueba-1.gif">
+              <source src="assets/vid/fanta/fanta-reel.mp4" type="video/mp4">
+            </video>
+          </div>
+        </article>
 
-      <!-- Los lugares recuerdan -->
-      <article class="project reveal">
-        <div class="project__header">
-          <p class="collab-badge">Trabajo colaborativo</p>
-          <p class="project__number">02</p>
-          <h3 class="project__name">Los lugares recuerdan</h3>
-          <p class="project__meta">Créditos finales para Robot Dreams · Motion graphics · 2026 · Rol: animación (escenas del parque y del mar)</p>
-        </div>
-        <p class="project__desc">Los lugares recuerdan es una secuencia animada de créditos finales inspirada en la relación entre el Perro y el Robot. La propuesta convierte los créditos en una extensión narrativa de la historia, integrándolos en espacios y momentos que evocan la memoria, la distancia y el paso del tiempo.</p>
-        <div class="video-block">
-          <video controls muted loop preload="metadata">
-            <source src="assets/vid/robot-dreams-credits/rd-creditos.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="project__gallery project__gallery--2col">
-          <video controls muted loop preload="metadata">
-            <source src="assets/vid/robot-dreams-credits/rd-parque.mp4" type="video/mp4">
-          </video>
-          <video controls muted loop preload="metadata">
-            <source src="assets/vid/robot-dreams-credits/rd-mar.mp4" type="video/mp4">
-          </video>
-        </div>
-      </article>
+        <!-- Los lugares recuerdan -->
+        <article class="project reveal">
+          <div class="project__header">
+            <p class="collab-badge">Trabajo colaborativo</p>
+            <p class="project__number">02</p>
+            <h3 class="project__name">Los lugares recuerdan</h3>
+            <p class="project__meta">Créditos finales para Robot Dreams · Motion graphics · 2026 · Rol: animación (escenas del parque y del mar)</p>
+          </div>
+          <p class="project__desc">Los lugares recuerdan es una secuencia animada de créditos finales inspirada en la relación entre el Perro y el Robot. La propuesta convierte los créditos en una extensión narrativa de la historia, integrándolos en espacios y momentos que evocan la memoria, la distancia y el paso del tiempo.</p>
+          <div class="video-block">
+            <video controls muted loop preload="metadata">
+              <source src="assets/vid/robot-dreams-credits/rd-creditos.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="project__gallery project__gallery--2col">
+            <video controls muted loop preload="metadata">
+              <source src="assets/vid/robot-dreams-credits/rd-parque.mp4" type="video/mp4">
+            </video>
+            <video controls muted loop preload="metadata">
+              <source src="assets/vid/robot-dreams-credits/rd-mar.mp4" type="video/mp4">
+            </video>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
