@@ -157,21 +157,13 @@
   /* SECTIONS */
   .section { padding-block: var(--space-section); }
   @media (min-width: 1024px) { .section { padding-block: var(--space-section-xl); } }
-  .section--ink { background: var(--color-ink); color: var(--color-neutral); position: relative; overflow: hidden; }
+  .section--ink { background: var(--color-ink); color: var(--color-neutral); }
   .section--ink a { color: var(--color-secondary); }
-  .motion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); margin-top: var(--space-2xl); align-items: start; }
-  .motion-card { background: var(--color-secondary); border-radius: var(--radius-lg); padding: var(--space-2xl); }
-  .motion-card .project__number { color: var(--color-ink); }
-  .motion-card .project__name { color: var(--color-ink); font-size: clamp(24px, 3vw, 40px); }
-  .motion-card .project__meta { color: var(--color-ink); opacity: .7; }
-  .motion-card .project__desc { color: var(--color-ink); }
-  .motion-right .project__number { color: var(--color-primary); font-size: clamp(24px, 3vw, 40px); }
-  .motion-right .project__name { color: var(--color-neutral); font-size: clamp(28px, 4vw, 48px); }
-  .motion-right .project__meta { color: var(--color-neutral); opacity: .6; }
-  .motion-right .project__desc { color: var(--color-neutral); }
+  .motion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); margin-top: var(--space-2xl); align-items: start; }
+  .motion-right .project__number { color: var(--color-primary); }
+  .motion-right .project__name { color: var(--color-neutral); }
   .motion-right .collab-badge { margin-bottom: var(--space-md); }
-  .motion-line { position: absolute; top: 0; right: 52%; width: 3px; height: 100%; background: var(--color-tertiary); }
-  @media (max-width: 767px) { .motion-grid { grid-template-columns: 1fr; } .motion-line { display: none; } }
+  @media (max-width: 767px) { .motion-grid { grid-template-columns: 1fr; } }
   .section--tertiary { background: var(--color-tertiary); color: var(--color-ink); }
   .section--primary { background: var(--color-primary); color: var(--color-ink); }
   .section__kicker { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); transition: color var(--motion-fast); display: inline-block; }
@@ -180,7 +172,7 @@
   .section:hover .section__title { color: var(--color-primary); }
 
   /* STATEMENT */
-  .statement { padding-block: 12px; text-align: center; }
+  .statement { padding-block: var(--space-2xl); text-align: center; }
   .statement__kicker { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .14em; margin-bottom: var(--space-xl); }
   .statement__text { font-family: var(--font-franie); font-weight: 700; font-size: clamp(32px, 5vw, 72px); line-height: 1.1; max-width: 900px; margin-inline: auto; }
   .statement__text em { font-family: var(--font-franie); font-weight: 300; font-style: italic; }
@@ -255,7 +247,7 @@
   @media (min-width: 768px) { .illustration-section__inner { grid-template-columns: 1fr 1.5fr; } }
 
   /* MARQUEE */
-  .marquee { overflow: hidden; padding: var(--space-2xl) 0; background: var(--color-neutral); }
+  .marquee { overflow: hidden; padding: var(--space-2xl) var(--page-pad); background: var(--color-neutral); }
   .marquee__row { display: flex; white-space: nowrap; overflow: hidden; }
   .marquee__text { font-size: clamp(40px, 7vw, 80px); line-height: 1.2; color: var(--color-ink); text-transform: uppercase; padding-right: .3em; flex-shrink: 0; }
   .marquee__text--franie { font-family: var(--font-franie); font-weight: 700; }
@@ -513,14 +505,13 @@
 
   <!-- MOTION -->
   <section class="section section--ink" id="motion" aria-labelledby="motion-title">
-    <div class="motion-line"></div>
     <div class="container">
       <p class="section__kicker" style="color:var(--color-neutral)">Motion graphics y animación</p>
       <h2 class="section__title" id="motion-title" style="color:var(--color-neutral)">Motion</h2>
 
       <div class="motion-grid">
         <!-- Fanta -->
-        <article class="project motion-card reveal">
+        <article class="project reveal">
           <div class="project__header">
             <p class="project__number">01</p>
             <h3 class="project__name">Fanta · Estallido de sabor</h3>
