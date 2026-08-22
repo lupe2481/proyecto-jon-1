@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luu García — Diseñadora Gráfica</title>
+<meta name="description" content="Portafolio de Luu García, diseñadora gráfica especializada en identidad, campañas, motion graphics e ilustración.">
+<style>
+  @font-face { font-family:'ITTrivane'; src:url('assets/fonts/ITTrivane-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Franie'; src:url('assets/fonts/Franie-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Franie'; src:url('assets/fonts/Franie-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Franie'; src:url('assets/fonts/Franie-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+  @font-face { font-family:'Franie'; src:url('assets/fonts/Franie-SemiBold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Franie'; src:url('assets/fonts/Franie-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+
+  :root {
+    --color-primary: #D84582;
+    --color-secondary: #007CBA;
+    --color-tertiary: #F95C4B;
+    --color-neutral: #E4DED2;
+    --color-ink: #000000;
+    --font-trivane: 'ITTrivane', sans-serif;
+    --font-franie: 'Franie', 'Helvetica Neue', Arial, sans-serif;
+    --fs-display: clamp(48px, 9vw, 128px);
+    --fs-title-1: clamp(44px, 6vw, 80px);
+    --fs-title-2: clamp(36px, 4.5vw, 56px);
+    --fs-title-3: clamp(24px, 2vw, 28px);
+    --fs-body: clamp(14px, 1.2vw, 15px);
+    --fs-nav: clamp(16px, 1.4vw, 18px);
+    --fs-button: clamp(16px, 1.4vw, 18px);
+    --fs-label: 14px;
+    --fs-metadata: 14px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-section: 96px;
+    --space-section-xl: 128px;
+    --radius-md: 24px;
+    --radius-lg: 32px;
+    --radius-full: 999px;
+    --border-hairline: 1px solid var(--color-ink);
+    --motion-fast: 160ms cubic-bezier(.4,0,.2,1);
+    --motion-slow: 450ms cubic-bezier(.4,0,.2,1);
+    --max-width: 1600px;
+    --page-pad: 16px;
+  }
+  @media (min-width: 600px)  { :root { --page-pad: 32px; } }
+  @media (min-width: 1024px) { :root { --page-pad: 48px; } }
+  @media (min-width: 1440px) { :root { --page-pad: 64px; } }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: var(--font-franie); font-size: var(--fs-body); font-weight: 400; line-height: 1.5; color: var(--color-ink); background: var(--color-neutral); text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+  img, video { display: block; max-width: 100%; height: auto; }
+  a { color: var(--color-secondary); text-decoration: none; transition: color var(--motion-fast); }
+  a:hover { color: var(--color-primary); }
+  :focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+  ::selection { background: var(--color-primary); color: var(--color-neutral); }
+  .skip-link { position: absolute; left: var(--space-sm); top: -100px; z-index: 100; padding: var(--space-sm) var(--space-md); background: var(--color-ink); color: var(--color-neutral); font-weight: 600; text-decoration: none; transition: top var(--motion-fast); }
+  .skip-link:focus { top: var(--space-sm); }
+  .container { width: 100%; max-width: var(--max-width); margin-inline: auto; padding-inline: var(--page-pad); }
+
+  /* NAV */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: var(--space-md) 0; transition: background var(--motion-slow), box-shadow var(--motion-slow); }
+  .nav.scrolled { background: var(--color-neutral); box-shadow: 0 1px 0 rgba(0,0,0,.08); }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; padding-left: var(--space-xl); }
+  .nav__logo { display: flex; align-items: center; gap: var(--space-sm); font-family: var(--font-franie); font-weight: 300; font-size: clamp(20px, 2vw, 24px); color: var(--color-ink); text-decoration: none; }
+  .nav__logo img { width: 48px; height: 48px; transition: transform var(--motion-fast); }
+  .nav__logo:hover img { transform: rotate(-10deg) scale(1.1); }
+  .nav__logo:hover { color: var(--color-primary); }
+  .nav__links { display: none; list-style: none; gap: var(--space-xl); }
+  .nav__links a { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-nav); color: var(--color-ink); text-decoration: none; position: relative; transition: color var(--motion-fast); }
+  .nav__links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--color-primary); transition: width var(--motion-fast); }
+  .nav__links a:hover { color: var(--color-primary); }
+  .nav__links a:hover::after { width: 100%; }
+  .nav__hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: var(--space-sm); z-index: 60; }
+  .nav__hamburger span { display: block; width: 24px; height: 2px; background: var(--color-ink); transition: transform var(--motion-fast), opacity var(--motion-fast), background var(--motion-fast); }
+  .nav__hamburger:hover span { background: var(--color-primary); }
+  .nav--light .nav__logo { color: var(--color-neutral); }
+  .nav--light .nav__links a { color: var(--color-neutral); }
+  .nav--light .nav__links a::after { background: var(--color-neutral); }
+  .nav--light .nav__hamburger span { background: var(--color-neutral); }
+  .nav__hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav__hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav__hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav__mobile { display: none; position: fixed; inset: 0; background: var(--color-neutral); z-index: 55; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-xl); }
+  .nav__mobile.open { display: flex; }
+  .nav__mobile a { font-family: var(--font-franie); font-weight: 600; font-size: clamp(24px, 4vw, 32px); color: var(--color-ink); text-decoration: none; transition: color var(--motion-fast), transform var(--motion-fast); display: inline-block; }
+  .nav__mobile a:hover { color: var(--color-primary); transform: translateX(8px); }
+  @media (min-width: 600px) { .nav__links { display: flex; } .nav__hamburger { display: none; } }
+
+  /* HERO */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-section) var(--page-pad); overflow: hidden; }
+  .hero__bg { position: absolute; inset: 0; z-index: -2; }
+  .hero__bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero__overlay { position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.45); }
+  .hero__content { text-align: center; position: relative; }
+  .hero__title { font-family: var(--font-franie); font-weight: 300; font-size: clamp(64px, 14vw, 180px); line-height: 1.0; letter-spacing: -0.02em; color: #E8E4C9; text-transform: lowercase; }
+  .hero__tags { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-md); margin-top: var(--space-xl); }
+  .hero__tag { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); padding: 12px 24px; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.12); color: var(--color-neutral); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background var(--motion-fast), transform var(--motion-fast); }
+  .hero__tag:hover { background: rgba(255,255,255,.25); transform: translateY(-2px); }
+  .hero__tag--pink { background: rgba(216,69,130,.7); border-color: rgba(216,69,130,.5); }
+  .hero__tag--pink:hover { background: rgba(216,69,130,.9); }
+  .hero__tag--blue { background: rgba(0,124,186,.7); border-color: rgba(0,124,186,.5); }
+  .hero__tag--blue:hover { background: rgba(0,124,186,.9); }
+  .hero__tag--orange { background: rgba(249,92,75,.7); border-color: rgba(249,92,75,.5); }
+  .hero__tag--orange:hover { background: rgba(249,92,75,.9); }
+
+  /* BUTTONS */
+  .btn { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-button); padding: 14px 24px; border-radius: var(--radius-full); border: none; cursor: pointer; text-decoration: none; min-height: 44px; transition: background var(--motion-fast), transform var(--motion-fast), box-shadow var(--motion-fast); }
+  .btn--primary { background: var(--color-ink); color: var(--color-neutral); }
+  .btn--primary:hover { background: var(--color-primary); color: var(--color-ink); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+  .btn--secondary { background: transparent; color: var(--color-ink); border: 1px solid var(--color-ink); }
+  .btn--secondary:hover { background: var(--color-ink); color: var(--color-neutral); transform: translateY(-2px); }
+
+  /* PREVIEW */
+  .preview { padding: var(--space-section) var(--page-pad); }
+  .preview__heading { text-align: center; margin-bottom: var(--space-lg); }
+  .preview__title { font-family: var(--font-franie); font-weight: 700; font-size: clamp(56px, 12vw, 120px); line-height: 1.0; letter-spacing: -0.02em; color: var(--color-ink); }
+  .preview__title em { font-family: var(--font-franie); font-weight: 300; font-style: italic; transition: color var(--motion-fast); }
+  .preview__title:hover em { color: var(--color-primary); }
+  .preview__divider { border: none; border-top: 1px solid rgba(0,0,0,.15); margin-bottom: var(--space-2xl); }
+  .preview__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+  .preview__item { display: block; text-decoration: none; color: var(--color-ink); transition: transform var(--motion-fast); }
+  .preview__item:hover { transform: translateY(-4px); }
+  .preview__item-img { position: relative; overflow: hidden; background: var(--color-ink); aspect-ratio: 3/4; border-radius: var(--radius-md); }
+  .preview__item-img img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--motion-slow); }
+  .preview__item:hover .preview__item-img img { transform: scale(1.05); }
+  .preview__item-title { font-family: var(--font-franie); font-weight: 700; font-size: clamp(18px, 2vw, 24px); line-height: 1.2; margin-top: var(--space-md); transition: color var(--motion-fast); }
+  .preview__item:hover .preview__item-title { color: var(--color-primary); }
+  .preview__item-cat { font-family: var(--font-franie); font-weight: 400; font-size: var(--fs-metadata); margin-top: var(--space-sm); opacity: .6; }
+  .preview__item-date { font-family: var(--font-franie); font-weight: 400; font-size: var(--fs-metadata); opacity: .4; margin-top: var(--space-xs); }
+  @media (max-width: 767px) { .preview__grid { grid-template-columns: 1fr; } }
+
+  /* MENU SECTION */
+  .menu-section { background: var(--color-secondary); padding: calc(var(--space-section) + 48px) var(--page-pad) var(--space-section); background-image: repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(0,0,0,.08) 19px, rgba(0,0,0,.08) 20px), repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(0,0,0,.08) 19px, rgba(0,0,0,.08) 20px); background-size: 20px 20px; }
+  .menu-section__card { background: var(--color-neutral); border-radius: var(--radius-lg); display: grid; gap: var(--space-2xl); padding: var(--space-3xl); }
+  .menu-section__left {}
+  .menu-section__kicker { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .14em; margin-bottom: var(--space-lg); transition: color var(--motion-fast); }
+  .menu-section:hover .menu-section__kicker { color: var(--color-primary); }
+  .menu-section__title { font-family: var(--font-franie); font-weight: 700; font-size: clamp(32px, 5vw, 64px); line-height: 1.05; margin-bottom: var(--space-2xl); transition: color var(--motion-fast); }
+  .menu-section:hover .menu-section__title { color: var(--color-primary); }
+  .menu-section__cta { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-button); color: var(--color-ink); text-decoration: none; background: var(--color-tertiary); padding: 14px 24px; border-radius: var(--radius-full); min-height: 44px; transition: background var(--motion-fast), transform var(--motion-fast), box-shadow var(--motion-fast); }
+  .menu-section__cta:hover { background: var(--color-primary); color: var(--color-neutral); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+  .menu-section__list { list-style: none; }
+  .menu-section__item { border-top: 1px solid rgba(0,0,0,.15); }
+  .menu-section__item:last-child { border-bottom: 1px solid rgba(0,0,0,.15); }
+  .menu-section__link { display: flex; align-items: center; justify-content: space-between; padding: var(--space-xl) 0; text-decoration: none; color: var(--color-ink); font-family: var(--font-franie); font-weight: 700; font-size: clamp(20px, 2.5vw, 32px); transition: color var(--motion-fast), transform var(--motion-fast); }
+  .menu-section__link:hover { color: var(--color-primary); transform: translateX(8px); }
+  .menu-section__plus { font-size: 28px; font-weight: 300; transition: transform var(--motion-fast), color var(--motion-fast); }
+  .menu-section__link:hover .menu-section__plus { transform: rotate(90deg); color: var(--color-primary); }
+  @media (min-width: 768px) { .menu-section__card { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+  /* SECTIONS */
+  .section { padding-block: var(--space-section); }
+  @media (min-width: 1024px) { .section { padding-block: var(--space-section-xl); } }
+  .section--ink { background: var(--color-ink); color: var(--color-neutral); }
+  .section--ink a { color: var(--color-secondary); }
+  .section--tertiary { background: var(--color-tertiary); color: var(--color-ink); }
+  .section--primary { background: var(--color-primary); color: var(--color-ink); }
+  .section__kicker { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-md); transition: color var(--motion-fast); display: inline-block; }
+  .section:hover .section__kicker { color: var(--color-primary); }
+  .section__title { font-family: var(--font-trivane); font-weight: 400; font-size: var(--fs-title-1); line-height: 1.1; text-transform: uppercase; text-align: left; transition: color var(--motion-fast); }
+  .section:hover .section__title { color: var(--color-primary); }
+
+  /* STATEMENT */
+  .statement { padding-block: 12px; text-align: center; }
+  .statement__kicker { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .14em; margin-bottom: var(--space-xl); }
+  .statement__text { font-family: var(--font-franie); font-weight: 700; font-size: clamp(32px, 5vw, 72px); line-height: 1.1; max-width: 900px; margin-inline: auto; }
+  .statement__text em { font-family: var(--font-franie); font-weight: 300; font-style: italic; }
+  .statement__text .hl-blue { background: var(--color-secondary); padding: 0 .08em; }
+  .statement__text .hl-pink { background: var(--color-primary); padding: 0 .08em; }
+  .statement__text .hl-orange { background: var(--color-tertiary); padding: 0 .08em; }
+
+  /* ABOUT */
+  .about__header { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-lg); margin-bottom: var(--space-2xl); }
+  .about__header .section__title { margin: 0; transition: color var(--motion-fast); }
+  .about__header:hover .section__title { color: var(--color-primary); }
+  .about__tags { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+  .about__tag { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); border: 1px solid var(--color-ink); background: transparent; color: var(--color-ink); transition: background var(--motion-fast), color var(--motion-fast), transform var(--motion-fast); }
+  .about__tag:hover { background: var(--color-ink); color: var(--color-neutral); transform: translateY(-2px); }
+  .about__grid { display: grid; gap: var(--space-lg); align-items: stretch; }
+  .about__photo { border-radius: var(--radius-md); overflow: hidden; transition: transform var(--motion-fast); }
+  .about__photo:hover { transform: scale(1.02); }
+  .about__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--motion-slow); }
+  .about__photo:hover img { transform: scale(1.05); }
+  .about__card { background: var(--color-secondary); border-radius: var(--radius-md); padding: var(--space-2xl); display: flex; flex-direction: column; justify-content: space-between; color: var(--color-neutral); transition: transform var(--motion-fast), box-shadow var(--motion-fast); }
+  .about__card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.2); }
+  .about__card-kicker { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-lg); }
+  .about__card-title { font-family: var(--font-franie); font-weight: 700; font-size: var(--fs-title-1); line-height: 1.1; margin-bottom: var(--space-xl); }
+  .about__card-text { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.6; margin-bottom: var(--space-xl); }
+  .about__card-text p + p { margin-top: var(--space-md); }
+  .about__card-cta { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-button); color: var(--color-ink); text-decoration: none; border: 1px solid var(--color-ink); border-radius: var(--radius-full); padding: 14px 24px; min-height: 44px; width: fit-content; transition: background var(--motion-fast), color var(--motion-fast), transform var(--motion-fast), box-shadow var(--motion-fast); }
+  .about__card-cta:hover { background: var(--color-ink); color: var(--color-secondary); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+  @media (min-width: 600px) { .about__grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .about__grid { grid-template-columns: 1.2fr 1fr; } }
+
+  /* PROJECTS */
+  .project { padding-block: var(--space-section); }
+  .project + .project { border-top: 1px solid rgba(0,0,0,.12); }
+  .project__header { margin-bottom: var(--space-xl); }
+  .project__number { font-family: var(--font-franie); font-weight: 700; font-size: var(--fs-title-3); color: var(--color-primary); transition: transform var(--motion-fast); display: inline-block; }
+  .project__header:hover .project__number { transform: translateX(4px); }
+  .project__name { font-family: var(--font-trivane); font-weight: 400; font-size: var(--fs-title-2); line-height: 1.15; text-transform: uppercase; transition: color var(--motion-fast); }
+  .project__header:hover .project__name { color: var(--color-primary); }
+  .project__meta { font-family: var(--font-franie); font-weight: 400; font-size: var(--fs-metadata); margin-top: var(--space-sm); opacity: .6; }
+  .project__desc { font-size: var(--fs-body); line-height: 1.6; max-width: 700px; margin-bottom: var(--space-xl); }
+  .project__gallery { display: grid; gap: var(--space-md); grid-template-columns: repeat(3, 1fr); }
+  .project__gallery img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--radius-md); transition: transform var(--motion-slow), box-shadow var(--motion-slow); cursor: pointer; }
+  .project__gallery--row4 img { aspect-ratio: 4/3; }
+  .project__gallery img:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+  .project__gallery--full { grid-template-columns: 1fr; }
+  .project__gallery--2col { grid-template-columns: repeat(2, 1fr); }
+  .project__gallery--row3 { grid-template-columns: repeat(3, 1fr); }
+  .project__gallery--row4 { grid-template-columns: repeat(4, 1fr); }
+  .project__palette { display: flex; gap: var(--space-sm); margin-top: var(--space-lg); }
+  .project__palette span { width: 40px; height: 40px; border-radius: var(--radius-full); border: 1px solid rgba(0,0,0,.15); }
+
+  /* VIDEO */
+  .video-block { position: relative; aspect-ratio: 16/9; background: var(--color-ink); overflow: hidden; margin-bottom: var(--space-lg); max-height: 350px; border-radius: var(--radius-md); }
+  .video-block--vertical { aspect-ratio: 9/16; max-height: 500px; width: 280px; }
+  .video-block img, .video-block video { width: 100%; height: 100%; object-fit: cover; }
+  .collab-badge { display: block; font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); background: var(--color-tertiary); color: var(--color-ink); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); width: fit-content; margin-bottom: var(--space-sm); }
+
+  /* ILLUSTRATION */
+  .illustration-section { background: var(--color-neutral); padding: var(--space-section) var(--page-pad); }
+  .illustration-section__inner { display: grid; gap: var(--space-2xl); align-items: start; }
+  .illustration-section__left { position: sticky; top: 100px; }
+  .illustration-section__kicker { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); text-transform: uppercase; letter-spacing: .14em; margin-bottom: var(--space-md); color: var(--color-primary); }
+  .illustration-section__title { font-family: var(--font-trivane); font-weight: 400; font-size: clamp(48px, 8vw, 96px); line-height: 1.0; color: var(--color-ink); text-transform: uppercase; }
+  .illustration-section__desc { margin-top: var(--space-xl); font-size: var(--fs-body); line-height: 1.7; max-width: 40ch; }
+  .illustration-section__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+  .illust-card { position: relative; overflow: hidden; border-radius: var(--radius-md); cursor: pointer; transition: transform var(--motion-fast); }
+  .illust-card:nth-child(4), .illust-card:nth-child(5), .illust-card:nth-child(6) { transform: translateY(40px); }
+  .illust-card:hover { transform: translateY(-4px); }
+  .illust-card:nth-child(4):hover, .illust-card:nth-child(5):hover, .illust-card:nth-child(6):hover { transform: translateY(36px); }
+  .illust-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--radius-md); transition: transform var(--motion-slow); }
+  .illust-card:hover img { transform: scale(1.04); }
+  @media (min-width: 768px) { .illustration-section__inner { grid-template-columns: 1fr 1.5fr; } }
+
+  /* MARQUEE */
+  .marquee { overflow: hidden; padding: var(--space-2xl) 0; background: var(--color-neutral); }
+  .marquee__row { display: flex; white-space: nowrap; overflow: hidden; }
+  .marquee__text { font-size: clamp(40px, 7vw, 80px); line-height: 1.2; color: var(--color-ink); text-transform: uppercase; padding-right: .3em; flex-shrink: 0; }
+  .marquee__text--franie { font-family: var(--font-franie); font-weight: 700; }
+  .marquee__text--trivane { font-family: var(--font-trivane); font-weight: 400; }
+  .marquee__text--italic { font-family: var(--font-franie); font-weight: 300; font-style: italic; text-transform: none; }
+  .marquee__row--left .marquee__track { animation: marquee-left 25s linear infinite; }
+  .marquee__row--right .marquee__track { animation: marquee-right 25s linear infinite; }
+  .marquee__track { display: flex; width: max-content; }
+  @keyframes marquee-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  @keyframes marquee-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,.92); align-items: center; justify-content: center; padding: var(--space-xl); }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+  .lightbox__close { position: absolute; top: var(--space-lg); right: var(--space-lg); background: none; border: none; color: var(--color-neutral); font-size: 32px; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; transition: transform var(--motion-fast), color var(--motion-fast); }
+  .lightbox__close:hover { transform: rotate(90deg); color: var(--color-primary); }
+  .lightbox__nav { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--color-neutral); font-size: 40px; cursor: pointer; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+  .lightbox__prev { left: var(--space-lg); }
+  .lightbox__next { right: var(--space-lg); }
+
+  /* CONTACT */
+  .contact { text-align: center; padding-block: var(--space-section-xl); background: var(--color-neutral); }
+  .contact__card { background: var(--color-primary); border-radius: var(--radius-lg); padding: var(--space-3xl); }
+  .contact__title { font-family: var(--font-trivane); font-weight: 400; font-size: var(--fs-title-1); line-height: 1.1; text-transform: uppercase; margin-bottom: var(--space-xl); }
+  .contact__msg { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.6; max-width: 600px; margin: 0 auto var(--space-2xl); }
+  .contact__links { display: flex; flex-direction: column; gap: var(--space-md); align-items: center; }
+  .contact__link { font-family: var(--font-franie); font-weight: 600; font-size: clamp(16px, 1.5vw, 20px); color: var(--color-ink); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; position: relative; transition: color var(--motion-fast); }
+  .contact__link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--color-ink); transition: width var(--motion-fast); }
+  .contact__link:hover { color: var(--color-neutral); }
+  .contact__link:hover::after { width: 100%; }
+
+  /* FOOTER */
+  .footer { background: var(--color-ink); color: var(--color-neutral); padding: var(--space-2xl) 0 var(--space-xl); text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .footer__isotipo { width: 80px; height: 80px; margin-top: var(--space-lg); order: 99; display: block; margin-inline: auto; }
+  .footer__wordmark { font-family: var(--font-franie); font-weight: 300; font-size: clamp(48px, 8vw, 100px); line-height: 1; margin-bottom: var(--space-lg); }
+  .footer__wordmark a { transition: color var(--motion-fast); }
+  .footer__wordmark a:hover { color: var(--color-primary); }
+  .footer__links { display: flex; justify-content: center; gap: var(--space-xl); margin-bottom: var(--space-lg); flex-wrap: wrap; list-style: none; }
+  .footer__links a { color: var(--color-neutral); font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-nav); transition: color var(--motion-fast), transform var(--motion-fast); display: inline-block; }
+  .footer__links a:hover { color: var(--color-primary); transform: translateY(-2px); }
+  .footer__copy { font-size: var(--fs-metadata); opacity: .6; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Saltar al contenido</a>
+
+<!-- NAV -->
+<nav class="nav nav--light" aria-label="Navegación principal">
+  <div class="container nav__inner">
+    <a href="#home" class="nav__logo"><img src="assets/img/isotipo-curv.svg" alt="">Luu García</a>
+    <ul class="nav__links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#brand">Brand</a></li>
+      <li><a href="#motion">Motion</a></li>
+      <li><a href="#illustration">Illustration</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav__mobile" role="dialog" aria-label="Menú de navegación">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#brand">Brand</a>
+  <a href="#motion">Motion</a>
+  <a href="#illustration">Illustration</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="main">
+
+  <!-- HOME / HERO -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero__bg">
+      <img src="assets/img/hero-yo.jpg" alt="Luu García — Diseñadora gráfica">
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title" id="hero-title">Luu<br>García</h1>
+      <div class="hero__tags">
+        <span class="hero__tag hero__tag--blue">Brand</span>
+        <span class="hero__tag hero__tag--pink">Motion</span>
+        <span class="hero__tag hero__tag--orange">Illustration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW -->
+  <section class="preview container" aria-labelledby="preview-title">
+    <div class="preview__heading">
+      <h2 class="preview__title" id="preview-title">View the <em>work</em></h2>
+    </div>
+    <hr class="preview__divider">
+    <div class="preview__grid">
+      <a href="#brand" class="preview__item reveal">
+        <div class="preview__item-img">
+          <img src="assets/img/brand/eva/marca-eva-cartel.jpg" alt="EVA — Identidad visual" loading="lazy">
+        </div>
+        <h3 class="preview__item-title">EVA</h3>
+        <p class="preview__item-cat">Identidad visual · Branding</p>
+        <p class="preview__item-date">2025</p>
+      </a>
+      <a href="#motion" class="preview__item reveal">
+        <div class="preview__item-img">
+          <img src="assets/img/brand/cin-queer/camp-queer-cartel.jpg" alt="Cinema Queer México — Campaña" loading="lazy">
+        </div>
+        <h3 class="preview__item-title">Cinema Queer México</h3>
+        <p class="preview__item-cat">Campaña cultural</p>
+        <p class="preview__item-date">2026</p>
+      </a>
+      <a href="#illustration" class="preview__item reveal">
+        <div class="preview__item-img">
+          <img src="assets/img/illustration/char.jpg" alt="Ilustración" loading="lazy">
+        </div>
+        <h3 class="preview__item-title">Illustration</h3>
+        <p class="preview__item-cat">Ilustración editorial</p>
+        <p class="preview__item-date">2025</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section--tertiary" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about__header">
+        <h2 class="section__title" id="about-title">About</h2>
+        <div class="about__tags">
+          <span class="about__tag">Branding</span>
+          <span class="about__tag">Campañas</span>
+          <span class="about__tag">Motion</span>
+          <span class="about__tag">Ilustración</span>
+        </div>
+      </div>
+      <div class="about__grid">
+        <div class="about__photo reveal">
+          <img src="assets/img/foto-yo.jpg" alt="Foto de Luu García">
+        </div>
+        <div class="about__card reveal">
+          <div>
+            <p class="about__card-kicker">Sobre mí</p>
+            <h3 class="about__card-title">María Guadalupe García</h3>
+            <div class="about__card-text">
+              <p>Soy María Guadalupe García, diseñadora gráfica enfocada en crear propuestas visuales con personalidad. Trabajo entre el branding, las campañas, el motion graphics y la ilustración, explorando distintos estilos y formatos según las necesidades de cada proyecto.</p>
+              <p>Actualmente estudio Diseño Gráfico Digital en La Universidad La Salle y me interesa especialmente seguir desarrollándome en Motion Graphics, combinando concepto, experimentación y ejecución visual.</p>
+              <p>Fuera del diseño, disfruto dibujar, escuchar música y leer.</p>
+            </div>
+          </div>
+          <a href="#contact" class="about__card-cta">Escríbeme &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND -->
+  <section class="section" id="brand" aria-labelledby="brand-title">
+    <div class="container">
+      <p class="section__kicker">Identidad y campañas</p>
+      <h2 class="section__title" id="brand-title">Brand</h2>
+
+      <!-- EVA -->
+      <article class="project reveal">
+        <div class="project__header">
+          <p class="project__number">01</p>
+          <h3 class="project__name">EVA</h3>
+          <p class="project__meta">Identidad visual · Exposición colectiva · 2025 · Rol: diseño de identidad visual</p>
+        </div>
+        <p class="project__desc">EVA es la identidad visual de una exposición colectiva de ilustración que reinterpreta la figura de Eva como símbolo del origen de lo femenino. El concepto "Fragmentación de lo femenino" representa una identidad dividida por factores sociales, culturales y emocionales que puede reconstruirse mediante la introspección, la creatividad y la resistencia.</p>
+        <div class="project__gallery project__gallery--row4">
+          <img src="assets/img/brand/eva/marca-eva-cartel.jpg" alt="EVA — Pieza principal" loading="lazy">
+          <img src="assets/img/brand/eva/marca-eva-01.jpg" alt="EVA — Logotipo" loading="lazy">
+          <img src="assets/img/brand/eva/marca-eva-02.jpg" alt="EVA — Sistema gráfico" loading="lazy">
+          <img src="assets/img/brand/eva/marca-eva-03.jpg" alt="EVA — Aplicaciones" loading="lazy">
+        </div>
+      </article>
+
+      <!-- Pequeños cuidados -->
+      <article class="project reveal">
+        <div class="project__header">
+          <p class="project__number">02</p>
+          <h3 class="project__name">Pequeños cuidados</h3>
+          <p class="project__meta">Campaña de autoexploración mamaria · 2026 · Rol: estrategia y desarrollo creativo</p>
+        </div>
+        <p class="project__desc">Pequeños cuidados es una campaña de salud que acerca la autoexploración mamaria a la vida cotidiana de adolescentes y jóvenes. Parte de tres ideas —familiaridad, confianza y hábito— para presentar la revisión mensual como una acción sencilla, íntima y preventiva, alejada de un tono médico o alarmista.</p>
+        <div class="project__gallery project__gallery--row4">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-01.jpg" alt="Pequeños cuidados — Pieza principal" loading="lazy">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-02.jpg" alt="Pequeños cuidados — Aplicación digital" loading="lazy">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-03.png" alt="Pequeños cuidados — Aplicación impresa" loading="lazy">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-04.png" alt="Pequeños cuidados — Pieza adicional" loading="lazy">
+        </div>
+      </article>
+
+      <!-- Cinema Queer México -->
+      <article class="project reveal">
+        <div class="project__header">
+          <p class="project__number">03</p>
+          <h3 class="project__name">Cinema Queer México</h3>
+          <p class="project__meta">Campaña cultural · Festival de cine · 2026 · Rol: estrategia y desarrollo creativo</p>
+        </div>
+        <p class="project__desc">Cinema Queer México es una campaña para un festival de cine independiente especializado en narrativas LGBTQ+. Bajo el concepto "Existir sin miedo", posiciona al festival como un espacio de visibilidad, comunidad y pertenencia, donde las identidades y experiencias queer pueden expresarse con libertad.</p>
+        <div class="project__gallery project__gallery--row3">
+          <img src="assets/img/brand/cin-queer/camp-queer-cartel.jpg" alt="Cinema Queer — Pieza principal" loading="lazy">
+          <img src="assets/img/brand/cin-queer/camp-queer-01.jpg" alt="Cinema Queer — Piezas de campaña" loading="lazy">
+          <img src="assets/img/brand/cin-queer/camp-queer-02.jpg" alt="Cinema Queer — Aplicaciones" loading="lazy">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement container" aria-labelledby="statement-title">
+    <p class="statement__kicker">Luu García Studio</p>
+    <h2 class="statement__text" id="statement-title">Creo para <em>comunicar</em>, <span class="hl-blue">experimentar</span> y hacer visible <span class="hl-pink">una idea</span>.</h2>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="menu-section" aria-labelledby="menu-title">
+    <div class="container menu-section__card">
+      <div class="menu-section__left">
+        <p class="menu-section__kicker">Explorar</p>
+        <h2 class="menu-section__title" id="menu-title">Lo que<br>hago</h2>
+        <a href="#brand" class="menu-section__cta">Ver todo &rarr;</a>
+      </div>
+      <ul class="menu-section__list">
+        <li class="menu-section__item">
+          <a href="#brand" class="menu-section__link">
+            <span>Brand</span>
+            <span class="menu-section__plus">+</span>
+          </a>
+        </li>
+        <li class="menu-section__item">
+          <a href="#motion" class="menu-section__link">
+            <span>Motion</span>
+            <span class="menu-section__plus">+</span>
+          </a>
+        </li>
+        <li class="menu-section__item">
+          <a href="#illustration" class="menu-section__link">
+            <span>Illustration</span>
+            <span class="menu-section__plus">+</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MOTION -->
+  <section class="section section--ink" id="motion" aria-labelledby="motion-title">
+    <div class="container">
+      <p class="section__kicker" style="color:var(--color-neutral)">Motion graphics y animación</p>
+      <h2 class="section__title" id="motion-title" style="color:var(--color-neutral)">Motion</h2>
+
+      <!-- Fanta -->
+      <article class="project reveal">
+        <div class="project__header">
+          <p class="project__number">01</p>
+          <h3 class="project__name">Fanta · Estallido de sabor</h3>
+          <p class="project__meta">Promocional animado para TikTok · Motion graphics · 2026 · Rol: concepto visual, diseño y animación</p>
+        </div>
+        <p class="project__desc">Estallido de sabor es un promocional animado para TikTok que traduce la energía, frescura y espontaneidad de Fanta en una pieza breve y dinámica. El concepto parte del instante en que el sabor aparece y libera una energía que transforma la escena, utilizando color, movimiento y ritmo para generar impacto y recordación.</p>
+        <div class="video-block video-block--vertical">
+          <video controls muted loop preload="metadata" poster="assets/vid/fanta/prueba-1.gif">
+            <source src="assets/vid/fanta/fanta-reel.mp4" type="video/mp4">
+          </video>
+        </div>
+      </article>
+
+      <!-- Los lugares recuerdan -->
+      <article class="project reveal">
+        <div class="project__header">
+          <p class="collab-badge">Trabajo colaborativo</p>
+          <p class="project__number">02</p>
+          <h3 class="project__name">Los lugares recuerdan</h3>
+          <p class="project__meta">Créditos finales para Robot Dreams · Motion graphics · 2026 · Rol: animación (escenas del parque y del mar)</p>
+        </div>
+        <p class="project__desc">Los lugares recuerdan es una secuencia animada de créditos finales inspirada en la relación entre el Perro y el Robot. La propuesta convierte los créditos en una extensión narrativa de la historia, integrándolos en espacios y momentos que evocan la memoria, la distancia y el paso del tiempo.</p>
+        <div class="video-block">
+          <video controls muted loop preload="metadata">
+            <source src="assets/vid/robot-dreams-credits/rd-creditos.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project__gallery project__gallery--2col">
+          <video controls muted loop preload="metadata">
+            <source src="assets/vid/robot-dreams-credits/rd-parque.mp4" type="video/mp4">
+          </video>
+          <video controls muted loop preload="metadata">
+            <source src="assets/vid/robot-dreams-credits/rd-mar.mp4" type="video/mp4">
+          </video>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ILLUSTRATION -->
+  <section class="illustration-section" id="illustration" aria-labelledby="illustration-title">
+    <div class="illustration-section__inner">
+      <div class="illustration-section__left">
+        <p class="illustration-section__kicker">Ilustración</p>
+        <h2 class="illustration-section__title" id="illustration-title">Illustration</h2>
+        <p class="illustration-section__desc">La ilustración es mi espacio para jugar, experimentar y llevar las ideas a un lado más expresivo. En estos proyectos personales exploro personajes, formas y composiciones inspiradas en el estilo cartoon, usando colores vibrantes y mucha personalidad para crear imágenes llenas de energía.</p>
+      </div>
+      <div class="illustration-section__gallery">
+        <div class="illust-card reveal" data-lightbox="0">
+          <img src="assets/img/illustration/char.jpg" alt="Ilustración — Personaje" loading="lazy">
+        </div>
+        <div class="illust-card reveal" data-lightbox="1">
+          <img src="assets/img/illustration/helado.jpg" alt="Ilustración — Helado" loading="lazy">
+        </div>
+        <div class="illust-card reveal" data-lightbox="2">
+          <img src="assets/img/illustration/lot-100.jpg" alt="Ilustración — Lot 100" loading="lazy">
+        </div>
+        <div class="illust-card reveal" data-lightbox="3">
+          <img src="assets/img/illustration/metro.jpg" alt="Ilustración — Metro" loading="lazy">
+        </div>
+        <div class="illust-card reveal" data-lightbox="4">
+          <img src="assets/img/illustration/punk.jpg" alt="Ilustración — Punk" loading="lazy">
+        </div>
+        <div class="illust-card reveal" data-lightbox="5">
+          <img src="assets/img/illustration/tienda.jpg" alt="Ilustración — Tienda" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee__row marquee__row--left">
+      <div class="marquee__track">
+        <span class="marquee__text marquee__text--franie">MAKE IT BOLD </span>
+        <span class="marquee__text marquee__text--italic">// make it move </span>
+        <span class="marquee__text marquee__text--trivane">// MAKE IT YOURS </span>
+        <span class="marquee__text marquee__text--franie">MAKE IT BOLD </span>
+        <span class="marquee__text marquee__text--italic">// make it move </span>
+        <span class="marquee__text marquee__text--trivane">// MAKE IT YOURS </span>
+      </div>
+    </div>
+    <div class="marquee__row marquee__row--right">
+      <div class="marquee__track">
+        <span class="marquee__text marquee__text--trivane">MAKE IT MOVE </span>
+        <span class="marquee__text marquee__text--franie">// MAKE IT YOURS </span>
+        <span class="marquee__text marquee__text--italic">// make it bold </span>
+        <span class="marquee__text marquee__text--trivane">MAKE IT MOVE </span>
+        <span class="marquee__text marquee__text--franie">// MAKE IT YOURS </span>
+        <span class="marquee__text marquee__text--italic">// make it bold </span>
+      </div>
+    </div>
+    <div class="marquee__row marquee__row--left">
+      <div class="marquee__track">
+        <span class="marquee__text marquee__text--italic">// make it bold </span>
+        <span class="marquee__text marquee__text--franie">MAKE IT MOVE </span>
+        <span class="marquee__text marquee__text--trivane">// MAKE IT YOURS </span>
+        <span class="marquee__text marquee__text--italic">// make it bold </span>
+        <span class="marquee__text marquee__text--franie">MAKE IT MOVE </span>
+        <span class="marquee__text marquee__text--trivane">// MAKE IT YOURS </span>
+      </div>
+    </div>
+    <div class="marquee__row marquee__row--right">
+      <div class="marquee__track">
+        <span class="marquee__text marquee__text--franie">MAKE IT YOURS </span>
+        <span class="marquee__text marquee__text--trivane">// MAKE IT BOLD </span>
+        <span class="marquee__text marquee__text--italic">// make it move </span>
+        <span class="marquee__text marquee__text--franie">MAKE IT YOURS </span>
+        <span class="marquee__text marquee__text--trivane">// MAKE IT BOLD </span>
+        <span class="marquee__text marquee__text--italic">// make it move </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact__card">
+        <h2 class="contact__title" id="contact-title">Contacto</h2>
+        <p class="contact__msg">Estoy abierta a nuevas oportunidades y colaboraciones. Si te interesa trabajar conmigo o conocer más sobre mi trabajo, escríbeme.</p>
+        <div class="contact__links">
+          <a href="mailto:garciasantiagom156@gmail.com" class="contact__link">garciasantiagom156@gmail.com</a>
+          <a href="https://www.linkedin.com/in/maría-guadalupe-garcia-16b72430a" class="contact__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/luluu_garz/" class="contact__link" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer__wordmark"><a href="#home" style="color:inherit;text-decoration:none">Luu García</a></p>
+    <ul class="footer__links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#brand">Brand</a></li>
+      <li><a href="#motion">Motion</a></li>
+      <li><a href="#illustration">Illustration</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <p class="footer__copy">&copy; 2026 Luu García</p>
+    <img src="assets/img/isotipo-curv.svg" alt="Luu García" class="footer__isotipo">
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Vista ampliada">
+  <button class="lightbox__close" aria-label="Cerrar">&times;</button>
+  <button class="lightbox__nav lightbox__prev" aria-label="Anterior">&#8249;</button>
+  <button class="lightbox__nav lightbox__next" aria-label="Siguiente">&#8250;</button>
+  <img src="" alt="">
+</div>
+
+<script>
+(function(){
+  // HAMBURGER
+  const hamburger = document.querySelector('.nav__hamburger');
+  const mobileMenu = document.querySelector('.nav__mobile');
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+
+  // NAV SCROLL
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 40;
+    nav.classList.toggle('scrolled', scrolled);
+    nav.classList.toggle('nav--light', !scrolled);
+  }, { passive: true });
+
+  // REVEAL ON SCROLL
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => revealObs.observe(el));
+
+  // LIGHTBOX
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = lightbox.querySelector('img');
+  const items = document.querySelectorAll('.illust-card');
+  let currentIdx = 0;
+  const sources = Array.from(items).map(i => i.querySelector('img').src);
+
+  function openLB(idx) {
+    currentIdx = idx;
+    lbImg.src = sources[idx];
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  items.forEach((item, i) => item.addEventListener('click', () => openLB(i)));
+  lightbox.querySelector('.lightbox__close').addEventListener('click', closeLB);
+  lightbox.querySelector('.lightbox__prev').addEventListener('click', () => { currentIdx = (currentIdx - 1 + sources.length) % sources.length; lbImg.src = sources[currentIdx]; });
+  lightbox.querySelector('.lightbox__next').addEventListener('click', () => { currentIdx = (currentIdx + 1) % sources.length; lbImg.src = sources[currentIdx]; });
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLB(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + sources.length) % sources.length; lbImg.src = sources[currentIdx]; }
+    if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % sources.length; lbImg.src = sources[currentIdx]; }
+  });
+})();
+</script>
+
+</body>
+</html>
