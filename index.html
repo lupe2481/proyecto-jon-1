@@ -217,6 +217,7 @@
   .project__gallery img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: var(--radius-md); transition: transform var(--motion-slow), box-shadow var(--motion-slow); cursor: pointer; }
   .project__gallery--row4 img { aspect-ratio: 4/3; }
   .project__gallery img:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+  .brand-img { cursor: pointer; }
   .project__gallery--full { grid-template-columns: 1fr; }
   .project__gallery--2col { grid-template-columns: repeat(2, 1fr); }
   .project__gallery--row3 { grid-template-columns: repeat(3, 1fr); }
@@ -429,10 +430,10 @@
         </div>
         <p class="project__desc">EVA es la identidad visual de una exposición colectiva de ilustración que reinterpreta la figura de Eva como símbolo del origen de lo femenino. El concepto "Fragmentación de lo femenino" representa una identidad dividida por factores sociales, culturales y emocionales que puede reconstruirse mediante la introspección, la creatividad y la resistencia.</p>
         <div class="project__gallery project__gallery--row4">
-          <img src="assets/img/brand/eva/marca-eva-cartel.jpg" alt="EVA — Pieza principal" loading="lazy">
-          <img src="assets/img/brand/eva/marca-eva-01.jpg" alt="EVA — Logotipo" loading="lazy">
-          <img src="assets/img/brand/eva/marca-eva-02.jpg" alt="EVA — Sistema gráfico" loading="lazy">
-          <img src="assets/img/brand/eva/marca-eva-03.jpg" alt="EVA — Aplicaciones" loading="lazy">
+          <img src="assets/img/brand/eva/marca-eva-cartel.jpg" alt="EVA — Pieza principal" loading="lazy" class="brand-img" data-brand="0">
+          <img src="assets/img/brand/eva/marca-eva-01.jpg" alt="EVA — Logotipo" loading="lazy" class="brand-img" data-brand="1">
+          <img src="assets/img/brand/eva/marca-eva-02.jpg" alt="EVA — Sistema gráfico" loading="lazy" class="brand-img" data-brand="2">
+          <img src="assets/img/brand/eva/marca-eva-03.jpg" alt="EVA — Aplicaciones" loading="lazy" class="brand-img" data-brand="3">
         </div>
       </article>
 
@@ -445,10 +446,10 @@
         </div>
         <p class="project__desc">Pequeños cuidados es una campaña de salud que acerca la autoexploración mamaria a la vida cotidiana de adolescentes y jóvenes. Parte de tres ideas —familiaridad, confianza y hábito— para presentar la revisión mensual como una acción sencilla, íntima y preventiva, alejada de un tono médico o alarmista.</p>
         <div class="project__gallery project__gallery--row4">
-          <img src="assets/img/brand/cancer-mama/camp-cancer-01.jpg" alt="Pequeños cuidados — Pieza principal" loading="lazy">
-          <img src="assets/img/brand/cancer-mama/camp-cancer-02.jpg" alt="Pequeños cuidados — Aplicación digital" loading="lazy">
-          <img src="assets/img/brand/cancer-mama/camp-cancer-03.png" alt="Pequeños cuidados — Aplicación impresa" loading="lazy">
-          <img src="assets/img/brand/cancer-mama/camp-cancer-04.png" alt="Pequeños cuidados — Pieza adicional" loading="lazy">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-01.jpg" alt="Pequeños cuidados — Pieza principal" loading="lazy" class="brand-img" data-brand="4">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-02.jpg" alt="Pequeños cuidados — Aplicación digital" loading="lazy" class="brand-img" data-brand="5">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-03.png" alt="Pequeños cuidados — Aplicación impresa" loading="lazy" class="brand-img" data-brand="6">
+          <img src="assets/img/brand/cancer-mama/camp-cancer-04.png" alt="Pequeños cuidados — Pieza adicional" loading="lazy" class="brand-img" data-brand="7">
         </div>
       </article>
 
@@ -461,9 +462,9 @@
         </div>
         <p class="project__desc">Cinema Queer México es una campaña para un festival de cine independiente especializado en narrativas LGBTQ+. Bajo el concepto "Existir sin miedo", posiciona al festival como un espacio de visibilidad, comunidad y pertenencia, donde las identidades y experiencias queer pueden expresarse con libertad.</p>
         <div class="project__gallery project__gallery--row3">
-          <img src="assets/img/brand/cin-queer/camp-queer-cartel.jpg" alt="Cinema Queer — Pieza principal" loading="lazy">
-          <img src="assets/img/brand/cin-queer/camp-queer-01.jpg" alt="Cinema Queer — Piezas de campaña" loading="lazy">
-          <img src="assets/img/brand/cin-queer/camp-queer-02.jpg" alt="Cinema Queer — Aplicaciones" loading="lazy">
+          <img src="assets/img/brand/cin-queer/camp-queer-cartel.jpg" alt="Cinema Queer — Pieza principal" loading="lazy" class="brand-img" data-brand="8">
+          <img src="assets/img/brand/cin-queer/camp-queer-01.jpg" alt="Cinema Queer — Piezas de campaña" loading="lazy" class="brand-img" data-brand="9">
+          <img src="assets/img/brand/cin-queer/camp-queer-02.jpg" alt="Cinema Queer — Aplicaciones" loading="lazy" class="brand-img" data-brand="10">
         </div>
       </article>
     </div>
@@ -702,12 +703,14 @@
   // LIGHTBOX
   const lightbox = document.getElementById('lightbox');
   const lbImg = lightbox.querySelector('img');
-  const items = document.querySelectorAll('.illust-card');
+  const illustItems = document.querySelectorAll('.illust-card');
+  const brandItems = document.querySelectorAll('.brand-img');
   let currentIdx = 0;
-  const sources = Array.from(items).map(i => i.querySelector('img').src);
+  let currentSources = [];
 
-  function openLB(idx) {
+  function openLB(idx, sources) {
     currentIdx = idx;
+    currentSources = sources;
     lbImg.src = sources[idx];
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -716,16 +719,26 @@
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
   }
-  items.forEach((item, i) => item.addEventListener('click', () => openLB(i)));
+  function navLB(dir) {
+    currentIdx = (currentIdx + dir + currentSources.length) % currentSources.length;
+    lbImg.src = currentSources[currentIdx];
+  }
+
+  const illustSources = Array.from(illustItems).map(i => i.querySelector('img').src);
+  illustItems.forEach((item, i) => item.addEventListener('click', () => openLB(i, illustSources)));
+
+  const brandSources = Array.from(brandItems).map(i => i.src);
+  brandItems.forEach((item, i) => item.addEventListener('click', () => openLB(i, brandSources)));
+
   lightbox.querySelector('.lightbox__close').addEventListener('click', closeLB);
-  lightbox.querySelector('.lightbox__prev').addEventListener('click', () => { currentIdx = (currentIdx - 1 + sources.length) % sources.length; lbImg.src = sources[currentIdx]; });
-  lightbox.querySelector('.lightbox__next').addEventListener('click', () => { currentIdx = (currentIdx + 1) % sources.length; lbImg.src = sources[currentIdx]; });
+  lightbox.querySelector('.lightbox__prev').addEventListener('click', () => navLB(-1));
+  lightbox.querySelector('.lightbox__next').addEventListener('click', () => navLB(1));
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLB(); });
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('open')) return;
     if (e.key === 'Escape') closeLB();
-    if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + sources.length) % sources.length; lbImg.src = sources[currentIdx]; }
-    if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % sources.length; lbImg.src = sources[currentIdx]; }
+    if (e.key === 'ArrowLeft') navLB(-1);
+    if (e.key === 'ArrowRight') navLB(1);
   });
 })();
 </script>
