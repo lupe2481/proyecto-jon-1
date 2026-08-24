@@ -171,7 +171,8 @@
   .section__title { font-family: var(--font-trivane); font-weight: 400; font-size: var(--fs-title-1); line-height: 1.1; text-transform: uppercase; text-align: left; transition: color var(--motion-fast); }
   .section:hover .section__title { color: var(--color-primary); }
   .section__title--block { position: relative; display: inline-block; }
-  .section__title--block::after { content: ''; position: absolute; bottom: .05em; left: -.04em; right: -.04em; height: .42em; background: var(--color-primary); z-index: -1; transition: background var(--motion-fast); }
+  .section__title--block::after { content: ''; position: absolute; bottom: .05em; left: -.04em; width: 0; height: .42em; background: var(--color-primary); z-index: -1; transition: width .6s ease .3s, background var(--motion-fast); }
+  .section__title--block.visible::after { width: calc(100% + .08em); }
   .section__title--block:hover::after { background: var(--color-secondary); }
 
   /* STATEMENT */
@@ -427,8 +428,10 @@
   <!-- BRAND -->
   <section class="section" id="brand" aria-labelledby="brand-title">
     <div class="container">
-      <p class="section__kicker reveal">Identidad y campañas</p>
-      <h2 class="section__title section__title--block reveal" id="brand-title">Brand</h2>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <p class="section__kicker reveal">Identidad y campañas</p>
+        <h2 class="section__title section__title--block reveal" id="brand-title" style="text-align:right">Brand</h2>
+      </div>
 
       <!-- EVA -->
       <article class="project reveal">
@@ -519,8 +522,10 @@
   <!-- MOTION -->
   <section class="section section--ink" id="motion" aria-labelledby="motion-title">
     <div class="container">
+      <div style="display:flex;flex-direction:column;gap:0">
         <p class="section__kicker reveal" style="color:var(--color-neutral)">Motion graphics y animación</p>
-      <h2 class="section__title section__title--block reveal" id="motion-title" style="color:var(--color-neutral)">Motion</h2>
+        <h2 class="section__title section__title--block reveal" id="motion-title" style="color:var(--color-neutral);text-align:right">Motion</h2>
+      </div>
 
       <div class="motion-grid">
         <!-- Fanta -->
