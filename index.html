@@ -288,6 +288,7 @@
   .contact__title { font-family: var(--font-trivane); font-weight: 400; font-size: var(--fs-title-1); line-height: 1.1; text-transform: uppercase; margin-bottom: var(--space-xl); }
   .contact__msg { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.6; max-width: 600px; margin: 0 auto var(--space-2xl); }
   .contact__links { display: flex; flex-direction: row; gap: var(--space-xl); align-items: center; justify-content: center; }
+  .contact__avatar { width: 100px; height: 100px; margin: 0 auto var(--space-lg); display: block; }
   .contact__link { color: var(--color-ink); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid var(--color-ink); transition: background var(--motion-fast), color var(--motion-fast), transform var(--motion-fast); }
   .contact__link:hover { background: var(--color-ink); color: var(--color-neutral); transform: translateY(-3px); }
 
@@ -660,6 +661,7 @@
   <section class="section contact" id="contact" aria-labelledby="contact-title">
     <div class="container">
       <div class="contact__card">
+        <img src="assets/img/yo-contact.svg" alt="Luu García" class="contact__avatar reveal">
         <h2 class="contact__title section__title--block reveal" id="contact-title">Contacto</h2>
         <p class="contact__msg reveal">Estoy abierta a nuevas oportunidades y colaboraciones. Si te interesa trabajar conmigo o conocer más sobre mi trabajo, escríbeme.</p>
         <div class="contact__links reveal">
