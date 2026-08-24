@@ -170,6 +170,9 @@
   .section:hover .section__kicker { color: var(--color-primary); }
   .section__title { font-family: var(--font-trivane); font-weight: 400; font-size: var(--fs-title-1); line-height: 1.1; text-transform: uppercase; text-align: left; transition: color var(--motion-fast); }
   .section:hover .section__title { color: var(--color-primary); }
+  .section__title--block { position: relative; display: inline-block; }
+  .section__title--block::after { content: ''; position: absolute; bottom: .05em; left: -.04em; right: -.04em; height: .42em; background: var(--color-primary); z-index: -1; transition: background var(--motion-fast); }
+  .section__title--block:hover::after { background: var(--color-secondary); }
 
   /* STATEMENT */
   .statement { padding-top: 5px; padding-bottom: 140px; text-align: center; }
@@ -392,7 +395,7 @@
   <section class="section section--tertiary" id="about" aria-labelledby="about-title">
     <div class="container">
       <div class="about__header">
-        <h2 class="section__title reveal" id="about-title">About</h2>
+        <h2 class="section__title section__title--block reveal" id="about-title">About</h2>
         <div class="about__tags reveal">
           <span class="about__tag reveal reveal-delay-1">Branding</span>
           <span class="about__tag reveal reveal-delay-2">Campañas</span>
@@ -424,7 +427,7 @@
   <section class="section" id="brand" aria-labelledby="brand-title">
     <div class="container">
       <p class="section__kicker reveal">Identidad y campañas</p>
-      <h2 class="section__title reveal" id="brand-title">Brand</h2>
+      <h2 class="section__title section__title--block reveal" id="brand-title">Brand</h2>
 
       <!-- EVA -->
       <article class="project reveal">
@@ -516,7 +519,7 @@
   <section class="section section--ink" id="motion" aria-labelledby="motion-title">
     <div class="container">
         <p class="section__kicker reveal" style="color:var(--color-neutral)">Motion graphics y animación</p>
-      <h2 class="section__title reveal" id="motion-title" style="color:var(--color-neutral)">Motion</h2>
+      <h2 class="section__title section__title--block reveal" id="motion-title" style="color:var(--color-neutral)">Motion</h2>
 
       <div class="motion-grid">
         <!-- Fanta -->
@@ -560,7 +563,7 @@
     <div class="illustration-section__inner">
       <div class="illustration-section__left">
         <p class="illustration-section__kicker reveal">Ilustración</p>
-        <h2 class="illustration-section__title reveal" id="illustration-title">Illustration</h2>
+        <h2 class="illustration-section__title section__title--block reveal" id="illustration-title">Illustration</h2>
         <p class="illustration-section__desc reveal">La ilustración es mi espacio para jugar, experimentar y llevar las ideas a un lado más expresivo. En estos proyectos personales exploro personajes, formas y composiciones inspiradas en el estilo cartoon, usando colores vibrantes y mucha personalidad para crear imágenes llenas de energía.</p>
       </div>
       <div class="illustration-section__gallery">
@@ -634,7 +637,7 @@
   <section class="section contact" id="contact" aria-labelledby="contact-title">
     <div class="container">
       <div class="contact__card">
-        <h2 class="contact__title reveal" id="contact-title">Contacto</h2>
+        <h2 class="contact__title section__title--block reveal" id="contact-title">Contacto</h2>
         <p class="contact__msg reveal">Estoy abierta a nuevas oportunidades y colaboraciones. Si te interesa trabajar conmigo o conocer más sobre mi trabajo, escríbeme.</p>
         <div class="contact__links reveal">
           <a href="mailto:garciasantiagom156@gmail.com" class="contact__link reveal reveal-delay-1" aria-label="Email">
