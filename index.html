@@ -308,6 +308,11 @@
   .reveal-delay-2 { transition-delay: .2s; }
   .reveal-delay-3 { transition-delay: .3s; }
   .reveal-delay-4 { transition-delay: .4s; }
+
+  /* SOFTWARES */
+  .section--softwares { padding: var(--space-section) var(--page-pad); text-align: center; }
+  .softwares__grid { max-width: 900px; margin: var(--space-2xl) auto 0; }
+  .softwares__img { width: 100%; height: auto; border-radius: var(--radius-lg); }
 </style>
 </head>
 <body>
@@ -421,6 +426,16 @@
           </div>
           <a href="#contact" class="about__card-cta reveal">Escríbeme &rarr;</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFTWARES -->
+  <section class="section section--softwares" aria-labelledby="softwares-title">
+    <div class="container">
+      <h2 class="section__title section__title--block reveal" id="softwares-title" style="text-align:center;color:var(--color-ink)">Software</h2>
+      <div class="softwares__grid reveal">
+        <img src="assets/img/Softwares.jpg" alt="Softwares que manejo" class="softwares__img">
       </div>
     </div>
   </section>
