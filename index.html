@@ -291,7 +291,7 @@
   .contact__avatar { width: 100%; max-width: 350px; height: auto; display: block; margin: 0 auto; }
   .contact__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center; }
   .contact__left { display: flex; align-items: center; justify-content: center; }
-  .contact__right { display: flex; flex-direction: column; gap: var(--space-lg); }
+  .contact__right { display: flex; flex-direction: column; gap: var(--space-lg); align-items: flex-start; text-align: left; }
   .contact__link { color: var(--color-ink); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid var(--color-ink); transition: background var(--motion-fast), color var(--motion-fast), transform var(--motion-fast); }
   .contact__link:hover { background: var(--color-ink); color: var(--color-neutral); transform: translateY(-3px); }
 
@@ -669,7 +669,7 @@
             <img src="assets/img/yo-contact.svg" alt="Luu García" class="contact__avatar">
           </div>
           <div class="contact__right">
-            <h2 class="contact__title section__title--block reveal" id="contact-title">Contacto</h2>
+            <h2 class="contact__title reveal" id="contact-title">Contacto</h2>
             <p class="contact__msg reveal">Estoy abierta a nuevas oportunidades y colaboraciones. Si te interesa trabajar conmigo o conocer más sobre mi trabajo, escríbeme.</p>
             <div class="contact__links reveal">
               <a href="mailto:garciasantiagom156@gmail.com" class="contact__link reveal reveal-delay-1" aria-label="Email">
