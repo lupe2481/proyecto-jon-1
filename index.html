@@ -211,6 +211,7 @@
   .about__card-text { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.6; margin-bottom: var(--space-xl); }
   .about__card-text p + p { margin-top: var(--space-md); }
   .about__card-cta { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-button); color: var(--color-ink); text-decoration: none; border: 1px solid var(--color-ink); border-radius: var(--radius-full); padding: 14px 24px; min-height: 44px; width: fit-content; transition: background var(--motion-fast), color var(--motion-fast), transform var(--motion-fast), box-shadow var(--motion-fast); }
+  .about__card-isotipo { width: 48px; height: 48px; margin-bottom: var(--space-md); }
   .about__card-cta:hover { background: var(--color-ink); color: var(--color-secondary); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
   @media (min-width: 600px) { .about__grid { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) { .about__grid { grid-template-columns: 1.2fr 1fr; } }
@@ -423,6 +424,7 @@
         </div>
         <div class="about__card reveal">
           <div>
+            <img src="assets/img/isotipo-curv.svg" alt="Luu García" class="about__card-isotipo">
             <p class="about__card-kicker reveal">Sobre mí</p>
             <h3 class="about__card-title reveal">María Guadalupe García</h3>
             <div class="about__card-text reveal">
