@@ -133,7 +133,7 @@
   .preview__item:hover .preview__item-title { color: var(--color-primary); }
   .preview__item-cat { font-family: var(--font-franie); font-weight: 400; font-size: var(--fs-metadata); margin-top: var(--space-sm); opacity: .6; }
   .preview__item-date { font-family: var(--font-franie); font-weight: 400; font-size: var(--fs-metadata); opacity: .4; margin-top: var(--space-xs); }
-  @media (max-width: 767px) { .preview__grid { grid-template-columns: 1fr; } .contact__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 767px) { .preview__grid { grid-template-columns: 1fr; } .contact__grid { grid-template-columns: 1fr; } .about__grid { grid-template-columns: 1fr; } .about__photo img { height: auto; } .about__card { padding: var(--space-lg); } }
 
   /* MENU SECTION */
   .menu-section { background: var(--color-secondary); padding: calc(var(--space-section) + 48px) var(--page-pad) var(--space-section); background-image: repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(0,0,0,.08) 19px, rgba(0,0,0,.08) 20px), repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(0,0,0,.08) 19px, rgba(0,0,0,.08) 20px); background-size: 20px 20px; }
@@ -199,7 +199,7 @@
   .about__tags { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
   .about__tag { font-family: var(--font-franie); font-weight: 600; font-size: var(--fs-label); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); border: 1px solid var(--color-ink); background: transparent; color: var(--color-ink); transition: background var(--motion-fast), color var(--motion-fast), transform var(--motion-fast); }
   .about__tag:hover { background: var(--color-ink); color: var(--color-neutral); transform: translateY(-2px); }
-  .about__grid { display: grid; gap: var(--space-lg); align-items: stretch; }
+  .about__grid { display: grid; gap: var(--space-lg); align-items: stretch; overflow: hidden; }
   .about__photo { border-radius: var(--radius-md); overflow: hidden; transition: transform var(--motion-fast); }
   .about__photo:hover { transform: scale(1.02); }
   .about__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--motion-slow); }
