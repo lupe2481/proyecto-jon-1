@@ -9,10 +9,17 @@ Portafolio web de diseño gráfico con enfoque en branding, motion graphics e il
 
 ## Documentación del proyecto
 
+### Documentos principales
 - [DESIGN.md](DESIGN.md) — Sistema de diseño y especificaciones del proyecto
 - [CV.md](CV.md) — Arquitectura de información y contenido del portafolio
+
+### Documentos Word
 - [DESIGN.docx](DESIGN.docx) — Documento de diseño en Word
 - [Arquitectura-cv.docx](Arquitectura-cv.docx) — Documento de arquitectura de información en Word
+
+### Documentos PDF
+- [DESIGN.pdf](DESIGN.pdf) — Documento de diseño en PDF
+- [Arquitectura-CV.pdf](Arquitectura-CV.pdf) — Documento de arquitectura de información en PDF
 
 ## Estructura del proyecto
 
