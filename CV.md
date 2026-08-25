@@ -175,7 +175,7 @@ La última sección funciona como cierre y llamada a la acción.
 - Mensaje: Estoy abierta a nuevas oportunidades y colaboraciones. Si te interesa trabajar conmigo o conocer más sobre mi trabajo, escríbeme.
 - Correo: garciasantiagom156@gmail.com
 - LinkedIn: https://www.linkedin.com/in/maría-guadalupe-garcia-16b72430a
-- Instagram: https://www.instagram.com/luluu_garz/
+- Instagram: https://www.instagram.com/luu_garzz/
 
 ## 10. Pie de página
 
